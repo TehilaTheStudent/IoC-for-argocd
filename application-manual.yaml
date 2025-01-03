@@ -12,7 +12,7 @@ spec:
     path: k8s-manifests
   destination: 
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: skillcode-manual
 
   syncPolicy:
     syncOptions:
