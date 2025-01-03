@@ -6,7 +6,7 @@ mongo:
 frontend:
   image: tehilathestudent/skillcode-frontend:latest
   port: 3000
-  nodePort: 30000
+  nodePort: 30001 # 30 000 is for the 
   backendUrl: "http://skillcode-backend-service:8080/skillcode"
 
 backend:
