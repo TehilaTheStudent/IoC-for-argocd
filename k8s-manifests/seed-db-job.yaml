@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: seed-db-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: seed-db-container
+          image: python:3.11
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongo-service:27017"
+            - name: DATABASE_NAME
+              value: "skillcode_db"
+          command:
+            [
+              "sh",
+              "-c",
+              "pip install -r /seed_scripts/requirements.txt && python /seed_scripts/drop_post.py",
+            ]
+          volumeMounts:
+            - name: seed-scripts
+              mountPath: /seed_scripts
+      volumes:
+        - name: seed-scripts
+          configMap:
+            name: seed-scripts
+      restartPolicy: OnFailure

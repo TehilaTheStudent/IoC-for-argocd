@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: mongo-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 27017 # exposed by the service, access this to get to the pod
+      targetPort: 27017 # port on the pod
+  selector:
+    app: mongo-pod

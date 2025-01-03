@@ -1,0 +1,26 @@
+mongo:
+  image: mongo:latest
+  port: 27017
+  database: skillcode_db
+
+frontend:
+  image: tehilathestudent/skillcode-frontend:latest
+  port: 3000
+  nodePort: 30000
+  backendUrl: "http://skillcode-backend-service:8080/skillcode"
+
+backend:
+  image: tehilathestudent/skillcode-backend:latest
+  port: 8080
+  clusterPort: 37000
+  kindServerUrl: "https://host.docker.internal"
+  mongoUri: "mongodb://mongo-service:27017"
+  mongoDb: "skillcode_db"
+  kubeconfig: "/root/.kube/config"
+  modeEnv: "development"
+
+seedDb:
+  image: python:3.11
+  mongoUri: "mongodb://mongo-service:27017"
+  databaseName: "skillcode_db"
+  collectionName: "questions"

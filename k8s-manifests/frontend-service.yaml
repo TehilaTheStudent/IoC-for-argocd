@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: skillcode-frontend-service
+spec:
+  type: NodePort
+  ports:
+  - port: 3000 # exposed by the service, access this to get to the pod 3,000
+    targetPort: 3000 # port on the pod 3,000
+    nodePort: 30000 # Change this port as needed. ( i want external access) 30,000 couse in range
+  selector:
+    app: skillcode-frontend-pod

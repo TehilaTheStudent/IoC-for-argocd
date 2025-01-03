@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skillcode-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skillcode-frontend-pod
+  template:
+    metadata:
+      labels:
+        app: skillcode-frontend-pod
+    spec: # pod spec
+      containers:
+      - name: frontend-container
+        image: tehilathestudent/skillcode-frontend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: BACKEND_URL
+          value: "http://skillcode-backend-service:8080/skillcode"
