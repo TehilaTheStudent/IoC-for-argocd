@@ -15,10 +15,10 @@ spec:
       containers:
       - name: frontend-container
         image: {{ .Values.frontend.image }}
-        imagePullSecrets:
-          - name: image-pull-secret
         ports:
         - containerPort: {{ .Values.frontend.port }}
         env:
         - name: BACKEND_URL
           value: {{ .Values.frontend.backendUrl | quote }}
+      imagePullSecrets:
+      - name: image-pull-secret
