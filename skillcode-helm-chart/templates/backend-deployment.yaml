@@ -15,9 +15,9 @@ spec:
       containers: # container spec
       - name: backend-container
         image: {{ .Values.backend.image }}
-        {{- if .Values.imagePullSecret.name }}
+        {{- if .Values.imagePullSecret }}
         imagePullSecrets:
-        - name: {{ .Values.imagePullSecret.name }}
+          - name: {{ .Values.imagePullSecret.name | quote }}
         {{- end }}
         ports:
         - containerPort: {{ .Values.backend.port }}
