@@ -1,2 +1,4 @@
 backend:
   image:  swr.ap-southeast-3.myhuaweicloud.com/codearts-sdlc/skillcode-backend:v1.1
+imagePullSecret:
+  name: image-pull-secret
