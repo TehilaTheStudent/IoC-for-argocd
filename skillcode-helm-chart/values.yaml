@@ -8,7 +8,7 @@ frontend:
   nodePort: 30001
   backendUrl: "http://skillcode-backend-service:8080/skillcode"
 backend:
-  image: swr.ap-southeast-3.myhuaweicloud.com/codearts-sdlc/skillcode-backend:v1.1
+  image: tehilathestudent/skillcode-backend:591dfcfdb1af161fd45cafb0646004bf95bf786c
   port: 8080
   clusterPort: 37000
   kindServerUrl: "https://host.docker.internal"
@@ -21,4 +21,3 @@ seedDb:
   mongoUri: "mongodb://mongo-service:27017"
   databaseName: "skillcode_db"
   collectionName: "questions"
-# image: tehilathestudent/skillcode-backend:591dfcfdb1af161fd45cafb0646004bf95bf786c

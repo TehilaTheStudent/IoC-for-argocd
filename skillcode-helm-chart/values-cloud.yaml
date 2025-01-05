@@ -1,0 +1,2 @@
+frontend:
+  image: swr.ap-southeast-3.myhuaweicloud.com/codearts-sdlc/skillcode-frontend:v1.1

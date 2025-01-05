@@ -15,8 +15,6 @@ spec:
       containers: # container spec
         - name: backend-container
           image: {{ .Values.backend.image  }}
-          imagePullSecrets:
-            - name: image-pull-secret
           ports:
             - containerPort: {{ .Values.backend.port }}
           env:

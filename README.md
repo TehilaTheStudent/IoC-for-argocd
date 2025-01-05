@@ -3,7 +3,7 @@
 - helm install <release-name> ./chart-dir -n <namespace>
 - helm lint skillcode-helm-chart/
 - helm install --dry-run skillcode-release skillcode-helm-chart/
-- helm template skillcode-release ./skillcode-helm-chart
+- helm template skillcode-release ./skillcode-helm-chart -f skillcode-helm-chart/values.yaml -f skillcode-helm-chart/values-cloud.yaml --show-only templates/frontend-deployment.yaml
 
 ### argoCD
 
