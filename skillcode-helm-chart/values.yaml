@@ -1,16 +1,14 @@
 mongo:
-  image: mongo:5.0  # Use a specific version for MongoDB
+  image: mongo:5.0 # Use a specific version for MongoDB
   port: 27017
   database: skillcode_db
-
 frontend:
   image: tehilathestudent/skillcode-frontend:<frontend_tag>
   port: 3000
   nodePort: 30001
   backendUrl: "http://skillcode-backend-service:8080/skillcode"
-
 backend:
-  image: tehilathestudent/skillcode-backend:<backend_tag>
+  image: tehilathestudent/skillcode-backend:591dfcfdb1af161fd45cafb0646004bf95bf786c
   port: 8080
   clusterPort: 37000
   kindServerUrl: "https://host.docker.internal"
@@ -18,7 +16,6 @@ backend:
   mongoDb: "skillcode_db"
   kubeconfig: "/root/.kube/config"
   modeEnv: "development"
-
 seedDb:
   image: python:3.11
   mongoUri: "mongodb://mongo-service:27017"
