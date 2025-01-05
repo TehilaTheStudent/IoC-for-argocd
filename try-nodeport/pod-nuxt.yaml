@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nuxt-app
+  labels:
+    app: nuxt-app
+spec:
+  containers:
+  - name: nuxt-app
+    image: node:16 # Use a more recent Node.js version suitable for Nuxt
+    command: ["sh", "-c"]
+    args:
+      - |
+        npx create-nuxt-app my-nuxt-app --answers '{"name":"my-nuxt-app","language":"js","pm":"npm","ui":"none","features":[],"linter":"none","test":"none","mode":"universal","target":"server","devTools":[]}' && \
+        cd my-nuxt-app && \
+        npm install && \
+        npm run dev;
+    ports:
+    - containerPort: 3000
