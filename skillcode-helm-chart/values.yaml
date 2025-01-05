@@ -1,16 +1,16 @@
 mongo:
-  image: mongo:latest
+  image: mongo:5.0  # Use a specific version for MongoDB
   port: 27017
   database: skillcode_db
 
 frontend:
-  image: tehilathestudent/skillcode-frontend:latest
+  image: tehilathestudent/skillcode-frontend:<frontend_tag>
   port: 3000
-  nodePort: 30001 # 30 000 is for the 
+  nodePort: 30001
   backendUrl: "http://skillcode-backend-service:8080/skillcode"
 
 backend:
-  image: tehilathestudent/skillcode-backend:latest
+  image: tehilathestudent/skillcode-backend:<backend_tag>
   port: 8080
   clusterPort: 37000
   kindServerUrl: "https://host.docker.internal"

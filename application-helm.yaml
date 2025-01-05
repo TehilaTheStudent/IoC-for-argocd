@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: skillcode-helm # Namespace where the application will be deployed
     server: https://kubernetes.default.svc # Kubernetes cluster URL
-  project: skillcode-helm # Project in ArgoCD (default is fine for now)
+  project: default # Project in ArgoCD (default is fine for now)
   source:
     repoURL: https://github.com/TehilaTheStudent/IoC-for-argocd.git # Git repository URL
     path: skillcode-helm-chart # Path to the Helm chart directory in the repo
