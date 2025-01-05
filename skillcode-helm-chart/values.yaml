@@ -3,7 +3,7 @@ mongo:
   port: 27017
   database: skillcode_db
 frontend:
-  image: tehilathestudent/skillcode-frontend:<frontend_tag>
+  image: tehilathestudent/skillcode-frontend:latest
   port: 3000
   nodePort: 30001
   backendUrl: "http://skillcode-backend-service:8080/skillcode"
