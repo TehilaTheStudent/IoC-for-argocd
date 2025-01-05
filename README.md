@@ -1,10 +1,9 @@
 ### helm
 
--helm install <release-name> ./chart-dir -n <namespace>
+- helm install <release-name> ./chart-dir -n <namespace>
 - helm lint skillcode-helm-chart/
 - helm install --dry-run skillcode-release skillcode-helm-chart/
 - helm template skillcode-release ./skillcode-helm-chart
-
 
 ### argoCD
 
@@ -12,7 +11,7 @@
 - kubectl get secret -n argocd argocd-initial-admin-secret -o yaml
   - echo M1FrZlczQ29SNHZzdkNOMQ== | base64 --decode
 - kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
-
+- (login first) argocd repo list
 
 ### kubectl
 
