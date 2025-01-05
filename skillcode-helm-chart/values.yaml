@@ -8,7 +8,7 @@ frontend:
   nodePort: 30001
   backendUrl: "http://skillcode-backend-service:8080/skillcode"
 backend:
-  image: tehilathestudent/skillcode-backend:591dfcfdb1af161fd45cafb0646004bf95bf786c
+  image: swr.ap-southeast-3.myhuaweicloud.com/codearts-sdlc/skillcode-backend:v1.1
   port: 8080
   clusterPort: 37000
   kindServerUrl: "https://host.docker.internal"
@@ -16,9 +16,9 @@ backend:
   mongoDb: "skillcode_db"
   kubeconfig: "/root/.kube/config"
   modeEnv: "development"
-  imagePullSecrets: []  # No secret for local environment
 seedDb:
   image: python:3.11
   mongoUri: "mongodb://mongo-service:27017"
   databaseName: "skillcode_db"
   collectionName: "questions"
+# image: tehilathestudent/skillcode-backend:591dfcfdb1af161fd45cafb0646004bf95bf786c

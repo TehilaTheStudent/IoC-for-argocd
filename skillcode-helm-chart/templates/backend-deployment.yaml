@@ -14,23 +14,23 @@ spec:
     spec:
       containers: # container spec
         - name: backend-container
-          image: { { .Values.backend.image } }
+          image: {{ .Values.backend.image  }}
           imagePullSecrets:
             - name: image-pull-secret
           ports:
-            - containerPort: { { .Values.backend.port } }
+            - containerPort: {{ .Values.backend.port }}
           env:
             - name: CLUSTER_PORT
-              value: { { .Values.backend.clusterPort | quote } }
+              value: {{ .Values.backend.clusterPort | quote }}
             - name: KIND_SERVER_URL
-              value: { { .Values.backend.kindServerUrl | quote } }
+              value: {{ .Values.backend.kindServerUrl | quote }}
             - name: MONGO_URI
-              value: { { .Values.backend.mongoUri | quote } }
+              value: {{ .Values.backend.mongoUri | quote }}
             - name: MONGO_DB
-              value: { { .Values.backend.mongoDb | quote } }
+              value: {{ .Values.backend.mongoDb | quote }}
             - name: KUBECONFIG
-              value: { { .Values.backend.kubeconfig | quote } }
+              value: {{ .Values.backend.kubeconfig | quote }}
             - name: PORT
-              value: { { .Values.backend.port | quote } }
+              value: {{ .Values.backend.port | quote }}
             - name: MODE_ENV
-              value: { { .Values.backend.modeEnv | quote } }
+              value: {{ .Values.backend.modeEnv | quote }}
