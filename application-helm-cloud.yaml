@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: skillcode-with-helm
+  namespace: argocd # Namespace where ArgoCD is installed
+spec:
+  destination:
+    namespace: skillcode-helm # Namespace where the application will be deployed
+    server: https://kubernetes.default.svc # Kubernetes cluster URL
+  project: default # Project in ArgoCD (default is fine for now)
+  source:
+    repoURL: https://github.com/TehilaTheStudent/IoC-for-argocd.git # Git repository URL
+    path: skillcode-helm-chart # Path to the Helm chart directory in the repo
+    targetRevision: HEAD # Git branch (use HEAD for the default branch)
+    helm:
+      valueFiles:
+        - values.yaml # Reference to the values.yaml file in your Helm chart
+        - values-cloud.yaml  # Override for cloud environment
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true # Automatically delete resources no longer in the repository
+      selfHeal: true # Automatically revert to the desired state if there are changes

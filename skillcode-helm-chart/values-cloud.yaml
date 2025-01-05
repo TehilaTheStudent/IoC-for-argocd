@@ -1,0 +1,11 @@
+backend:
+  image: swr.cn-north-1.my-cloud-provider.com/skillcode/skillcode-backend:latest
+frontend:
+  image: swr.cn-north-1.my-cloud-provider.com/skillcode/skillcode-frontend:latest
+mongo:
+  image: mongo:5.0
+seedDb:
+  image: python:3.11
+imagePullSecret:
+  name: image-pull-secret
+  dockerConfigJson: '{"auths":{"swr.ap-southeast-3.myhuaweicloud.com":{"username":"ap-southeast-3@DDQQKP2R4DF32O2F1ZTH","password":"0f0dfeea3e932ba05d2d70ee8c17ea6c133a10503733cf70bcf91e70ab6022ce"}}}'
